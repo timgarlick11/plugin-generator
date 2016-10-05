@@ -4,6 +4,8 @@ $(function ($) {
 	var questionNumber = $('.pagination-container button');
 	var form = $('form');
 
+	$(".showNext").prop("disabled", true).css('opacity', '.5');//set all buttons to disabled on page load
+
 	var pageLoad = function() {
 		if (start === true) {
 			$("#industry").show();
@@ -11,6 +13,7 @@ $(function ($) {
 		}
 	}
 	pageLoad();
+
 
 	questionNumber.on( 'click', function() {
 		start = false;
@@ -21,15 +24,12 @@ $(function ($) {
 		var filterValue = $(this).data('filter');
 		var filterId = '#' + filterValue;
 		var currentFilter = $(filterId).attr("id", filterValue).fadeIn(200);
-		var currentFilterId = "#" + currentFilter[0].id;
 
-		form.children().not(currentFilterId).hide(-500);
+		form.children().not(filterId).hide(-500);
 
 	});
-	var buttonState = function() {
 
-	}
-	$(".showNext").prop("disabled", true).css('opacity', '.5');
+
 
 	$("input:radio").change(function (e) { 
 		$(this).parent('label').siblings('.showNext').prop('disabled', false).css('opacity', '1');
@@ -37,7 +37,7 @@ $(function ($) {
 	});
 	$("input:checkbox").click(function (e) { 
 		var opacity;
-		var buttonState = $('input:checkbox:checked').length;
+		var buttonState = $('input:checkbox:checked').length;//returns boolean if there is a length it is true
 
 		if (buttonState) {
 			opacity = '1';			
@@ -48,25 +48,19 @@ $(function ($) {
 	});
 
 	$('.showPrevious').click(function(e) {
-		var previousQuestion = e.currentTarget.parentElement.previousElementSibling.id;
-		var previousQuestionId = "#" + e.currentTarget.parentElement.previousElementSibling.id;
+		var previousQuestion = $(this).parent('.input-seperator').prev().fadeIn(200);
 		
-		$(previousQuestionId).attr("id", previousQuestion).fadeIn(200);
-		form.children().not(previousQuestionId).hide(-500);
-
+		form.children().not(previousQuestion).hide(-500);
 		questionNumber.removeClass('blue');
-		$('.pagination-container button[data-filter=' + previousQuestion + ']').addClass('blue');
+		$('.pagination-container button[data-filter=' + previousQuestion[0].id + ']').addClass('blue');
 	});
 
 	$('.showNext').click(function(e) {
-		var nextQuestion = e.currentTarget.parentElement.nextElementSibling.id;
-		var nextQuestionId = "#" + e.currentTarget.parentElement.nextElementSibling.id;
+		var nextQuestion = $(this).parent('.input-seperator').next().fadeIn(200);
 		
-		$(nextQuestionId).attr("id", nextQuestion).fadeIn(200);
-		form.children().not(nextQuestionId).hide(-500);
-
+		form.children().not(nextQuestion).hide(-500);
 		questionNumber.removeClass('blue');
-		$('.pagination-container button[data-filter=' + nextQuestion + ']').addClass('blue');
+		$('.pagination-container button[data-filter=' + nextQuestion[0].id + ']').addClass('blue');
 
 	});
 
