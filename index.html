@@ -13,14 +13,19 @@
 	<div class="container">
 
 		<div class="pagination-container">
-			<ul>
-				<li class="start" data-filter="industry"><span>1</span></li>
-				<li data-filter="company-size"><span>2</span></li>
-				<li data-filter="users"><span>3</span></li>
-				<li data-filter="system"><span>4</span></li>
-				<li data-filter="timeframe"><span>5</span></li>
-				<li data-filter="discount"><span>6</span></li>
-			</ul>
+
+			<button class="start" data-filter="industry"><span>1</span></button>
+			
+			<button data-filter="company-size"><span>2</span></button>
+			
+			<button data-filter="users"><span>3</span></button>
+			
+			<button data-filter="system"><span>4</span></button>
+			
+			<button data-filter="timeframe"><span>5</span></button>
+			
+			<button data-filter="discount"><span>6</span></button>
+			
 		</div>
 		<form action="">
 			
@@ -34,6 +39,8 @@
 					<input class="industry" type="radio" name="industry" value="warehouse">
 					<div class="radio-alternate">Warehouse</div>
 				</label> 
+				<div class="clear"></div>
+				<button type="button" class="showNext">Next</button>
 			</div>
 			<div class="input-seperator" id="company-size">
 				<label class="input-title" for="">What is your company size?</label>
@@ -53,6 +60,9 @@
 					<input type="radio" class="company-size" name="company_size" value="125+">
 					<div class="radio-alternate">125 or more</div>
 				</label>
+				<div class="clear"></div>
+				<button type="button" class="showPrevious">Previous</button>
+				<button type="button" class="showNext">Next</button>
 			</div>
 			<div class="input-seperator" id="users">
 				<label class="input-title" for="">How many people will be using the software?</label>
@@ -72,6 +82,9 @@
 					<input type="radio" class="users" name="users" value="ten-plus"> 
 					<div class="radio-alternate">10 or less</div>
 				</label>
+				<div class="clear"></div>
+				<button type="button" class="showPrevious">Previous</button>
+				<button type="button" class="showNext">Next</button>
 			</div>
 			<div class="input-seperator" id="system">
 				<label class="input-title" for="">What type of system will be needing software? <span>(select all the apply)</span></label>
@@ -95,6 +108,9 @@
 					<input type="checkbox" class="system" name="system" value="edi">
 					<div class="checkbox-alternate">EDI</div> 
 				</label>
+				<div class="clear"></div>
+				<button type="button" class="showPrevious">Previous</button>
+				<button type="button" class="showNext">Next</button>
 			</div>
 			<div class="input-seperator" id="timeframe">
 				<label class="input-title" for="">What is your timeframe for obtaining software?</label>
@@ -114,6 +130,9 @@
 					<input type="radio" class="timeframe" name="timeframe" value="six-plus">
 					<div class="radio-alternate">6 months or more</div>
 				</label>
+				<div class="clear"></div>
+				<button type="button" class="showPrevious">Previous</button>
+				<button type="button" class="showNext">Next</button>
 			</div>
 			<div class="input-seperator" id="discount">
 				<label class="input-title" for="">Please fill out information</label>				
@@ -123,8 +142,9 @@
 				<input type="tel" class="customer" name="number" placeholder="Phone Number" required>
 				<input type="text" class="customer" name="discount_code" placeholder="Discount Code" required>
 				<button type="submit">Submit</button>
+				<div class="clear"></div>
 
-				<div class="showPrevious">Previous</div>
+				<button type="button" class="showPrevious">Previous</button>
 			</div>
 
 		</form>
