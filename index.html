@@ -15,21 +15,22 @@
 		<div class="pagination-container">
 
 			<button class="start" data-filter="industry"><span>1</span></button>
-			
+
 			<button data-filter="company-size"><span>2</span></button>
-			
+
 			<button data-filter="users"><span>3</span></button>
-			
+
 			<button data-filter="system"><span>4</span></button>
-			
+
 			<button data-filter="timeframe"><span>5</span></button>
-			
+
 			<button data-filter="discount"><span>6</span></button>
-			
+
 		</div>
 		<form action="">
+
 			
-			<div class="input-seperator" id="industry">
+			<div class="input-seperator" id="industry" data-number="1">
 				<label class="input-title" for="">What is your industry? </label>
 				<label >
 					<input class="industry" type="radio" name="industry" value="manufacturing" required>
@@ -42,7 +43,7 @@
 				<div class="clear"></div>
 				<button type="button" class="showNext">Next</button>
 			</div>
-			<div class="input-seperator" id="company-size">
+			<div class="input-seperator" id="company-size" data-number="2">
 				<label class="input-title" for="">What is your company size?</label>
 				<label>
 					<input type="radio" class="company-size" name="company_size" value="25" required>
@@ -64,7 +65,7 @@
 				<button type="button" class="showPrevious">Previous</button>
 				<button type="button" class="showNext">Next</button>
 			</div>
-			<div class="input-seperator" id="users">
+			<div class="input-seperator" id="users" data-number="3">
 				<label class="input-title" for="">How many people will be using the software?</label>
 				<label >
 					<input type="radio" class="users" name="users" value="two-less" required>
@@ -86,7 +87,7 @@
 				<button type="button" class="showPrevious">Previous</button>
 				<button type="button" class="showNext">Next</button>
 			</div>
-			<div class="input-seperator" id="system">
+			<div class="input-seperator" id="system" data-number="4">
 				<label class="input-title" for="">What type of system will be needing software? <span>(select all the apply)</span></label>
 				<label>
 					<input type="checkbox" class="system" name="system" value="accounting">
@@ -112,7 +113,7 @@
 				<button type="button" class="showPrevious">Previous</button>
 				<button type="button" class="showNext">Next</button>
 			</div>
-			<div class="input-seperator" id="timeframe">
+			<div class="input-seperator" id="timeframe" data-number="5">
 				<label class="input-title" for="">What is your timeframe for obtaining software?</label>
 				<label>
 					<input type="radio" class="timeframe" name="timeframe" value="one" required>
@@ -134,7 +135,7 @@
 				<button type="button" class="showPrevious">Previous</button>
 				<button type="button" class="showNext">Next</button>
 			</div>
-			<div class="input-seperator" id="discount">
+			<div class="input-seperator" id="discount" data-number="6">
 				<label class="input-title" for="">Please fill out information</label>				
 				<input type="text" class="customer" name="fname" placeholder="First Name" required>
 				<input type="text" class="customer" name="lname" placeholder="Last Name" required>

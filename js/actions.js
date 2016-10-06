@@ -4,12 +4,13 @@ $(function ($) {
 	var questionNumber = $('.pagination-container button');
 	var form = $('form');
 
-	$(".showNext").prop("disabled", true).css('opacity', '.5');//set all buttons to disabled on page load
+	$(".showNext").prop("disabled", true).css('opacity', '.5');
+	$(".pagination-container button").prop("disabled", true).css('opacity', '.5');//set all buttons to disabled on page load
 
 	var pageLoad = function() {
 		if (start === true) {
 			$("#industry").show();
-			$('.start').addClass('blue');
+			$('.start').addClass('blue').prop('disabled', false).css('opacity', '1');
 		}
 	}
 	pageLoad();
@@ -33,17 +34,35 @@ $(function ($) {
 
 	$("input:radio").change(function (e) { 
 		$(this).parent('label').siblings('.showNext').prop('disabled', false).css('opacity', '1');
+		
+		var numberFilter = $(this).parent('label').parent().data('number');
+		var inputClass = $(this)[0].className;
+		var allButtons = $(this).parents().find('.pagination-container').children('button').eq(numberFilter - 1);
 
+		allButtons.each(function(index, element) {
+			$(this).next().prop('disabled', false).css('opacity', '1');
+
+		});
 	});
 	$("input:checkbox").click(function (e) { 
 		var opacity;
-		var buttonState = $('input:checkbox:checked').length;//returns boolean if there is a length it is true
+		var buttonState = $('input:checkbox:checked').length;//returns boolean. If there is a length it is true
+
 
 		if (buttonState) {
 			opacity = '1';			
 		}
 		else {opacity = '.5'}
+			
 			$(this).parent('label').siblings('.showNext').prop('disabled', !$('input:checkbox:checked').length).css('opacity', opacity);
+
+		var numberFilter = $(this).parent('label').parent().data('number');
+		var allButtons = $(this).parents().find('.pagination-container').children('button').eq(numberFilter - 1);
+		
+		allButtons.each(function(index, element) {
+			$(this).next().prop('disabled', !$('input:checkbox:checked')).css('opacity', opacity);
+
+		});
 
 	});
 
@@ -57,6 +76,7 @@ $(function ($) {
 
 	$('.showNext').click(function(e) {
 		var nextQuestion = $(this).parent('.input-seperator').next().fadeIn(200);
+		console.log(nextQuestion);
 		
 		form.children().not(nextQuestion).hide(-500);
 		questionNumber.removeClass('blue');
@@ -65,5 +85,3 @@ $(function ($) {
 	});
 
 });
-
-
