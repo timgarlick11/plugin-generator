@@ -67,18 +67,18 @@ $(function ($) {
 	});
 
 	$('.showPrevious').click(function(e) {
-		var previousQuestion = $(this).parent('.input-seperator').prev().fadeIn(200);
+		var previousQuestion = $(this).parent('.input-seperator').prev().fadeIn(500);
 		
-		form.children().not(previousQuestion).hide(-500);
+		form.children().not(previousQuestion).fadeOut(-500);
 		questionNumber.removeClass('blue');
 		$('.pagination-container button[data-filter=' + previousQuestion[0].id + ']').addClass('blue');
 	});
 
 	$('.showNext').click(function(e) {
-		var nextQuestion = $(this).parent('.input-seperator').next().fadeIn(200);
+		var nextQuestion = $(this).parent('.input-seperator').next().fadeIn(500);
 		console.log(nextQuestion);
 		
-		form.children().not(nextQuestion).hide(-500);
+		form.children().not(nextQuestion).fadeOut(-500);
 		questionNumber.removeClass('blue');
 		$('.pagination-container button[data-filter=' + nextQuestion[0].id + ']').addClass('blue');
 
