@@ -9,7 +9,9 @@
 	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
+	<div class="progress-container">
+		<div class="progress-bar"></div>
+	</div>
 	<div class="container">
 
 		<div class="pagination-container">
@@ -47,7 +49,7 @@
 				<label class="input-title" for="">What is your company size?</label>
 				<label>
 					<input type="radio" class="company-size" name="company_size" value="25" required>
-					<div class="radio-alternate">25 or less</div>
+					<div class="radio-alternate">< 25</div>
 				</label>
 				<label>
 					<input type="radio" class="company-size" name="company_size" value="25-75" >
@@ -59,7 +61,7 @@
 				</label>
 				<label>
 					<input type="radio" class="company-size" name="company_size" value="125+">
-					<div class="radio-alternate">125 or more</div>
+					<div class="radio-alternate">125+</div>
 				</label>
 				<div class="clear"></div>
 				<button type="button" class="showPrevious">Previous</button>
@@ -69,7 +71,7 @@
 				<label class="input-title" for="">How many people will be using the software?</label>
 				<label >
 					<input type="radio" class="users" name="users" value="two-less" required>
-					<div class="radio-alternate">2 or less</div>
+					<div class="radio-alternate">< 2</div>
 				</label>
 				<label>
 					<input type="radio" class="users" name="users" value="two-five">
@@ -81,13 +83,13 @@
 				</label>
 				<label>
 					<input type="radio" class="users" name="users" value="ten-plus"> 
-					<div class="radio-alternate">10 or less</div>
+					<div class="radio-alternate">10+</div>
 				</label>
 				<div class="clear"></div>
 				<button type="button" class="showPrevious">Previous</button>
 				<button type="button" class="showNext">Next</button>
 			</div>
-			<div class="input-seperator" id="system" data-number="4">
+			<div class="input-seperator checked" id="system" data-number="4">
 				<label class="input-title" for="">What type of system will be needing software? <span>(select all the apply)</span></label>
 				<label>
 					<input type="checkbox" class="system" name="system" value="accounting">
@@ -117,7 +119,7 @@
 				<label class="input-title" for="">What is your timeframe for obtaining software?</label>
 				<label>
 					<input type="radio" class="timeframe" name="timeframe" value="one" required>
-					<div class="radio-alternate">1 month or less</div>
+					<div class="radio-alternate"> < 1 month</div>
 				</label>
 				<label>
 					<input type="radio" class="timeframe" name="timeframe" value="one-three">
@@ -129,7 +131,7 @@
 				</label>
 				<label>
 					<input type="radio" class="timeframe" name="timeframe" value="six-plus">
-					<div class="radio-alternate">6 months or more</div>
+					<div class="radio-alternate">6+ months</div>
 				</label>
 				<div class="clear"></div>
 				<button type="button" class="showPrevious">Previous</button>
@@ -142,10 +144,10 @@
 				<input type="email" class="customer" name="email" placeholder="Email" required>
 				<input type="tel" class="customer" name="number" placeholder="Phone Number" required>
 				<input type="text" class="customer" name="discount_code" placeholder="Discount Code" required>
-				<button type="submit">Submit</button>
 				<div class="clear"></div>
 
 				<button type="button" class="showPrevious">Previous</button>
+				<button class="showNext" type="submit">Finish</button>
 			</div>
 
 		</form>
