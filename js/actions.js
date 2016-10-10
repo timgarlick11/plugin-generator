@@ -30,7 +30,21 @@ $(function ($) {
 		form.children().not(filterId).hide(-500);
 
 	});
+	$('.showFirst').click(function() {
 
+		var industry = $('input[name=industry]:checked', 'form').val(); 
+		var industryId = '#' + industry;
+		console.log(industryId)
+		var filters = $(industryId).attr("id", industry).children('.input-seperator').eq(0).fadeIn(200);
+		console.log(filters);
+		filters.each(function(index, element) {
+			// $(this).next().fadeIn(200);
+			console.log(index, element);
+
+		});
+		console.log(form.children().not(industryId).detach())
+
+	});
 
 
 
@@ -41,6 +55,7 @@ $(function ($) {
 		var numberFilter = $(this).parent('label').parent().data('number');
 		var inputClass = $(this)[0].className;
 		var allButtons = $(this).parents().find('.pagination-container').children('button').eq(numberFilter - 1);
+		console.log(allButtons);
 
 		allButtons.each(function(index, element) {
 			$(this).next().prop('disabled', false).css('opacity', '1');
@@ -49,7 +64,7 @@ $(function ($) {
 	});
 	$("input:checkbox").click(function (e) { 
 		var opacity;
-		var buttonState = $('input:checkbox:checked').length;//returns boolean. If there is a length it is true
+		var buttonState = $('input:checkbox:checked').length;
 		console.log(buttonState)
 
 
