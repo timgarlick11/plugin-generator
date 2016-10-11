@@ -17,32 +17,47 @@ $(function ($) {
 	pageLoad();
 
 
-	questionNumber.on( 'click', function() {
-		start = false;
+	// questionNumber.on( 'click', function() {
+	// 	start = false;
 
-		questionNumber.not(this).removeClass('blue');
-		$(this).addClass('blue');
+	// 	questionNumber.not(this).removeClass('blue');
+	// 	$(this).addClass('blue');
 		
-		var filterValue = $(this).data('filter');
-		var filterId = '#' + filterValue;
-		var currentFilter = $(filterId).attr("id", filterValue).fadeIn(200);
+	// 	var filterValue = $(this).data('filter');
+	// 	var filterId = '#' + filterValue;
+	// 	var currentFilter = $(filterId).attr("id", filterValue).fadeIn(200);
 
-		form.children().not(filterId).hide(-500);
+	// 	form.children().not(filterId).hide(-500);
 
-	});
-	$('.showFirst').click(function() {
-
+	// });
+	$('.showFirst').click(function(e) {
+		console.log(e);
 		var industry = $('input[name=industry]:checked', 'form').val(); 
 		var industryId = '#' + industry;
-		console.log(industryId)
-		var filters = $(industryId).attr("id", industry).children('.input-seperator').eq(0).fadeIn(200);
-		console.log(filters);
-		filters.each(function(index, element) {
-			// $(this).next().fadeIn(200);
-			console.log(index, element);
+		var filters = $(industryId).attr("id", industry).children('.input-seperator');
+		var filtersData = filters.data('number');
+		var showFilter = filters.eq(filtersData).fadeIn(200);
+		// filters.each(function(index, element) {
+		// 	// $(this).next().fadeIn(200);
+		// 	console.log(index, element);
 
-		});
+		// });
 		console.log(form.children().not(industryId).detach())
+
+	});
+	$('.showNext').click(function(e) {
+
+		$(this).parent().next().fadeIn(500);
+		$(this).parent().fadeOut(-500);
+
+
+
+	});
+
+	$('.showPrev').click(function(e) {
+		
+		$(this).parent().prev().fadeIn(500);
+		$(this).parent().fadeOut(-500);
 
 	});
 
@@ -89,28 +104,9 @@ $(function ($) {
 
 	});
 
-	$('.showPrevious').click(function(e) {
-		var previousQuestion = $(this).parent('.input-seperator').prev().fadeIn(500);
-		
-		form.children().not(previousQuestion).fadeOut(-500);
-		questionNumber.removeClass('highlight');
-		$('.pagination-container button[data-filter=' + previousQuestion[0].id + ']').addClass('highlight');
-	});
-
-	$('.showNext').click(function(e) {
-		var nextQuestion = $(this).parent('.input-seperator').next().fadeIn(500);
-		console.log(nextQuestion);
-		
-		form.children().not(nextQuestion).fadeOut(-500);
-		questionNumber.removeClass('highlight');
-		$('.pagination-container button[data-filter=' + nextQuestion[0].id + ']').addClass('highlight');
-		// var formLength = $("form input[required]").length
-		// console.log(formLength)
-		formProgress();
 
 
-
-	});
+	
 
 	
 	var formProgress = function() {

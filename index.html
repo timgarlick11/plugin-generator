@@ -51,14 +51,14 @@
 					<div class="radio-alternate">Service</div>
 				</label> 
 				<label>
-					<input class="industry" type="radio" name="industry" value="wholesale-distribution">
-					<div class="radio-alternate">Wholesale Distribution</div>
+					<input class="industry" type="radio" name="industry" value="distribution">
+					<div class="radio-alternate">Distribution</div>
 				</label>  
 				<div class="clear"></div>
 				<button type="button" class="showFirst">Next</button>
 			</div>
 			<div id="service">
-				<div class="input-seperator">
+				<div class="input-seperator" data-number="0">
 					<label class="input-title" for="">How many of the following apply to your revenue / sales process? </label>
 					<label>
 						<input class="revenue" type="checkbox" name="revenue" value="quotes">
@@ -97,8 +97,8 @@
 
 			</div>
 
-			<div id="wholesale-distribution">
-				<div class="input-seperator">
+			<div id="distribution">
+				<div class="input-seperator" data-number="0">
 					<label class="input-title" for="">What type of Accounting solution do you use? </label>
 					<label>
 						<input class="accounting" type="radio" name="accounting" value="quickbooks desktop">
@@ -125,15 +125,15 @@
 					<button type="button" class="showPrev">Previous</button>
 					<button type="button" class="showNext">Next</button>
 				</div>
-				<div class="input-seperator">
+				<div class="input-seperator" data-number="1">
 					<label class="input-title">Which best describes your sales process? </label>
 					<label>
 						<input class="sales-process" type="radio" name="sales-process" value="invoice">
-						<div class="radio-alternate">Purchase Order / Invoice</div>
+						<div class="radio-alternate">Invoice</div>
 					</label>
 					<label>
 						<input class="sales-process" type="radio" name="sales-process" value="fbc">
-						<div class="radio-alternate">Online Ecommerce</div>
+						<div class="radio-alternate">Ecommerce</div>
 					</label>
 					<label>
 						<input class="sales-process" type="radio" name="sales-process" value="salespoint">
@@ -151,7 +151,7 @@
 					<button type="button" class="showPrev">Previous</button>
 					<button type="button" class="showNext">Next</button>
 				</div>
-				<div class="input-seperator">
+				<div class="input-seperator" data-number="2">
 					<label class="input-title">Are you looking to barcode or scan your inventory? </label>
 					<label>
 						<input class="inventory-import" type="radio" name="inventory-import" value="fbg">
@@ -170,11 +170,11 @@
 					<button type="button" class="showNext">Next</button>
 					
 				</div>
-				<div class="input-seperator">
+				<div class="input-seperator" data-number="3">
 					<label class="input-title">Are any of the following advanced features applicable to your business? </label>
 					<label>
 						<input class="plugins" type="checkbox" name="plugins" value="shipstation">
-						<div class="checkbox-alternate">Automated Shipping</div>
+						<div class="checkbox-alternate">Shipping</div>
 					</label>
 					<label>
 						<input class="plugins" type="checkbox" name="plugins" value="avalara">
@@ -194,29 +194,11 @@
 					</label>
 					<div class="clear"></div>
 					<button type="button" class="showPrev">Previous</button>
-					<button type="button" class="showLast">Next</button>
+					<button type="button" class="showNext">Next</button>
 				</div>
 
-			</div>
-			
-			
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			<div class="input-seperator" id="discount" data-number="6">
+			<div class="input-seperator" id="discount" data-number="5">
 				<label class="input-title" for="">Please fill out information</label>				
 				<input type="text" class="customer" name="fname" placeholder="First Name" required>
 				<input type="text" class="customer" name="lname" placeholder="Last Name" required>
@@ -225,9 +207,28 @@
 				<input type="text" class="customer" name="discount_code" placeholder="Discount Code" required>
 				<div class="clear"></div>
 
-				<button type="button" class="showPrevious">Previous</button>
+				<button type="button" class="showPrev">Previous</button>
 				<button class="showNext" type="submit">Finish</button>
 			</div>
+
+			</div>
+			
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 		</form>
 
