@@ -5,7 +5,7 @@ $(function ($) {
 	var form = $('form');
 	var checkboxChecked = 0;
 
-	$(".showNext").prop("disabled", true).css('opacity', '.5');
+	$(".showNext, .showFirst").prop("disabled", true).css('opacity', '.5');
 	$(".pagination-container button").prop("disabled", true).css('opacity', '.5');//set all buttons to disabled on page load
 
 	var pageLoad = function() {
@@ -34,14 +34,11 @@ $(function ($) {
 		console.log(e);
 		var industry = $('input[name=industry]:checked', 'form').val(); 
 		var industryId = '#' + industry;
+		console.log(industryId);
 		var filters = $(industryId).attr("id", industry).children('.input-seperator');
 		var filtersData = filters.data('number');
 		var showFilter = filters.eq(filtersData).fadeIn(200);
-		// filters.each(function(index, element) {
-		// 	// $(this).next().fadeIn(200);
-		// 	console.log(index, element);
 
-		// });
 		console.log(form.children().not(industryId).detach())
 
 	});
@@ -126,5 +123,12 @@ $(function ($) {
 		
 		var test = $('.progress-bar').css('width', progress + '%');
 	}
+
+	$('form').on('submit', function(e) {
+		alert('pee');
+		e.preventDefault();
+
+		console.log($(this).serializeArray());
+	})
 
 });

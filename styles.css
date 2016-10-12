@@ -1,4 +1,4 @@
-html, body {font-size: 16px; font-family: 'Roboto', sans-serif; text-transform: uppercase;}
+html, body {font-size: 16px; font-family: 'Roboto', sans-serif; text-transform: uppercase; text-align: center;}
 .highlight {box-shadow: 0 10px 6px -6px #777;}
 .white {background: #ffffff !important; background: #004F8C !important;}
 .clear {clear: both;}
