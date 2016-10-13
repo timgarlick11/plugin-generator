@@ -4,6 +4,7 @@ $(function ($) {
 	var questionNumber = $('.pagination-container button');
 	var form = $('form');
 	var checkboxChecked = 0;
+	var detached;
 
 	$(".showNext, .showFirst").prop("disabled", true).css('opacity', '.5');
 	$(".pagination-container button").prop("disabled", true).css('opacity', '.5');//set all buttons to disabled on page load
@@ -16,20 +17,7 @@ $(function ($) {
 	}
 	pageLoad();
 
-
-	// questionNumber.on( 'click', function() {
-	// 	start = false;
-
-	// 	questionNumber.not(this).removeClass('blue');
-	// 	$(this).addClass('blue');
-		
-	// 	var filterValue = $(this).data('filter');
-	// 	var filterId = '#' + filterValue;
-	// 	var currentFilter = $(filterId).attr("id", filterValue).fadeIn(200);
-
-	// 	form.children().not(filterId).hide(-500);
-
-	// });
+	
 	$('.showFirst').click(function(e) {
 		console.log(e);
 		var industry = $('input[name=industry]:checked', 'form').val(); 
@@ -37,75 +25,69 @@ $(function ($) {
 		console.log(industryId);
 		var filters = $(industryId).attr("id", industry).children('.input-seperator');
 		var filtersData = filters.data('number');
-		var showFilter = filters.eq(filtersData).fadeIn(200);
+		var showFilter = filters.eq(filtersData -1).fadeIn(200);
 
-		console.log(form.children().not(industryId).detach())
+		detached = form.children().not(industryId).remove();
 
 	});
 	$('.showNext').click(function(e) {
+		var numberFilter = $(this).parent().data('number');
+		
+		
+		questionNumber.removeClass('highlight');
+		questionNumber.eq(numberFilter).each(function(index, element) {
+			$(this).next().prop('disabled', false).css('opacity', '1').addClass('highlight');
 
+		});
 		$(this).parent().next().fadeIn(500);
 		$(this).parent().fadeOut(-500);
-
 
 
 	});
 
 	$('.showPrev').click(function(e) {
+		var numberFilter = $(this).parent().data('number');
+		console.log(numberFilter)
+		if ((numberFilter - 1) === 0) {
+			location.reload();
+
+		} else {
+			questionNumber.removeClass('highlight');
+			questionNumber.eq(numberFilter).each(function(index, element) {
+				$(this).prev().addClass('highlight');
+
+			});
+			$(this).parent().prev().fadeIn(500);
+			$(this).parent().fadeOut(-500);
+		}
 		
-		$(this).parent().prev().fadeIn(500);
-		$(this).parent().fadeOut(-500);
 
 	});
-
-
-
 
 	$("input:radio").change(function (e) { 
 		$(this).parent('label').siblings('.showNext').prop('disabled', false).css('opacity', '1');
-		
-		var numberFilter = $(this).parent('label').parent().data('number');
-		var inputClass = $(this)[0].className;
-		var allButtons = $(this).parents().find('.pagination-container').children('button').eq(numberFilter - 1);
-		console.log(allButtons);
-
-		allButtons.each(function(index, element) {
-			$(this).next().prop('disabled', false).css('opacity', '1');
-
-		});
 	});
+
 	$("input:checkbox").click(function (e) { 
+		console.log(1)
 		var opacity;
 		var buttonState = $('input:checkbox:checked').length;
-		console.log(buttonState)
-
 
 		if (buttonState > 0) {
-			opacity = '1';
-			checkboxChecked++;			
+			opacity = '1';			
 		}
 		else {
 			opacity = '.5'; 
-			checkboxChecked--;
 		}
 
 		$(this).parent('label').siblings('.showNext').prop('disabled', !$('input:checkbox:checked').length).css('opacity', opacity);
-
-		// var numberFilter = $(this).parent('label').parent().data('number');
-		// var allButtons = $(this).parents().find('.pagination-container').children('button').eq(numberFilter - 1);
-		
-		// allButtons.each(function(index, element) {
-		// 	$(this).next().prop('disabled', !$('input:checkbox:checked').length).css('opacity', opacity);
-
-		// });
-
 	});
 
 
 
-	
 
-	
+
+
 	var formProgress = function() {
 		var validInputNum = 0;
 		$("form input[required").each(function(index, element) {
@@ -113,7 +95,7 @@ $(function ($) {
 			if (this.validity.valid) {
 				validInputNum++;
 			}
-			
+
 
 
 		});
@@ -125,7 +107,7 @@ $(function ($) {
 	}
 
 	$('form').on('submit', function(e) {
-		alert('pee');
+
 		e.preventDefault();
 
 		console.log($(this).serializeArray());

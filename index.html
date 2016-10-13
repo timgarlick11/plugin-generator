@@ -16,23 +16,23 @@
 
 		<div class="pagination-container">
 
-			<button class="start" data-filter="industry"><span>1</span></button>
+			<button class="start" data-filter="0"><span>1</span></button>
 
-			<button data-filter="company-size"><span>2</span></button>
+			<button data-filter="1"><span>2</span></button>
 
-			<button data-filter="users"><span>3</span></button>
+			<button data-filter="2"><span>3</span></button>
 
-			<button data-filter="system"><span>4</span></button>
+			<button data-filter="3"><span>4</span></button>
 
-			<button data-filter="timeframe"><span>5</span></button>
+			<button data-filter="4"><span>5</span></button>
 
-			<button data-filter="discount"><span>6</span></button>
+			<button data-filter="5"><span>6</span></button>
 
 		</div>
-		<form action="">
+		<form id="form" action="">
 
 			
-			<div class="input-seperator" id="industry" data-number="1">
+			<div class="input-seperator" id="industry" data-number="0">
 				<label class="input-title" for="">Which of the following best describe your Industry? </label>
 				<label>
 					<input class="industry" type="radio" name="industry" value="asset-tracking">
@@ -59,76 +59,81 @@
 			</div>
 
 			<div id="asset-tracking" >
-				<div class="input-seperator" data-number="0">
+				
+				<div class="input-seperator" data-number="1">
 					<label class="input-title">Are you looking to barcode or scan your inventory? </label>
 					<label>
-						<input class="inventory-import" type="radio" name="inventory-import" value="fbg">
+						<input class="barcode-recommendation" type="radio" name="barcode-recommendation" value="fbg">
 						<div class="radio-alternate">Yes</div>
 					</label>
 					<label>
-						<input class="inventory-import" type="radio" name="inventory-import" value="no-import">
+						<input class="barcode-recommendation" type="radio" name="barcode-recommendation" value="none">
 						<div class="radio-alternate">No</div>
 					</label>
 					<label>
-						<input class="inventory-import" type="radio" name="inventory-import" value="potentially">
+						<input class="barcode-recommendation" type="radio" name="barcode-recommendation" value="potentially">
 						<div class="radio-alternate">Potentially</div>
 					</label>
 					<div class="clear"></div>
 					<button type="button" class="showPrev">Previous</button>
 					<button type="button" class="showNext">Next</button>
 				</div>
-				<div class="input-seperator">
+				
+				<div class="input-seperator" data-number="2">
 					<label class="input-title">Do you need to track inventory by serial number, lot number, or expiration date? </label>
 					<label>
-						<input class="tracking" type="radio" name="tracking" value="no-add">
+						<input class="tracking" type="radio" name="tracking-recommendation" value="none">
 						<div class="radio-alternate">Yes</div>
 					</label>
 					<label>
-						<input class="tracking" type="radio" name="tracking" value="boxstorm">
+						<input class="tracking" type="radio" name="tracking-recommendation" value="boxstorm">
 						<div class="radio-alternate">No</div>
 					</label>
 					<div class="clear"></div>
 					<button type="button" class="showPrev">Previous</button>
 					<button type="button" class="showNext">Next</button>
 				</div>
-				<div class="input-seperator">
+
+				<div class="input-seperator" data-number="3">
 					<label class="input-title">Do you need any purchasing features or inventory reorder level features? </label>
 					<label>
-						<input class="reorder" type="radio" name="reorder" value="no-add">
+						<input class="reorder" type="radio" name="reorder-recommendation" value="none">
 						<div class="radio-alternate">Yes</div>
 					</label>
 					<label>
-						<input class="reorder" type="radio" name="reorder" value="boxstorm">
+						<input class="reorder" type="radio" name="reorder-recommendation" value="boxstorm">
 						<div class="radio-alternate">No</div>
 					</label>
 					<div class="clear"></div>
 					<button type="button" class="showPrev">Previous</button>
 					<button type="button" class="showNext">Next</button>
 				</div>
-				<div class="input-seperator" data-number="3">
+
+				<div class="input-seperator" data-number="4">
 					<label class="input-title">Are any of the following advanced features applicable to your business? </label>
 					<label>
-						<input class="plugins" type="checkbox" name="plugins" value="shipstation">
+						<input class="plugin-recommendation" type="checkbox" name="plugin-recommendation" value="shipstation">
 						<div class="checkbox-alternate">Shipping</div>
 					</label>
 					<label>
-						<input class="plugins" type="checkbox" name="plugins" value="fba">
+						<input class="plugin-recommendation" type="checkbox" name="plugin-recommendation" value="fba">
 						<div class="checkbox-alternate">Cloud Access</div>
 					</label>
 					<label>
-						<input class="plugins" type="checkbox" name="plugins" value="quickbooks">
+						<input class="plugin-recommendation" type="checkbox" name="plugin-recommendation" value="quickbooks">
 						<div class="checkbox-alternate">Depreciation</div>
 					</label>
 					<div class="clear"></div>
 					<button type="button" class="showPrev">Previous</button>
 					<button type="button" class="showNext">Next</button>
 				</div>
+
 				<div class="input-seperator" id="discount" data-number="5">
 					<label class="input-title" for="">Please fill out information</label>				
-					<input type="text" class="customer" name="fname" placeholder="First Name" required>
-					<input type="text" class="customer" name="lname" placeholder="Last Name" required>
+					<input type="text" class="customer" name="first-name" placeholder="First Name" required>
+					<input type="text" class="customer" name="last-name" placeholder="Last Name" required>
 					<input type="email" class="customer" name="email" placeholder="Email" required>
-					<input type="tel" class="customer" name="number" placeholder="Phone Number" required>
+					<input type="tel" class="customer" name="phone-number" placeholder="Phone Number" required>
 					<input type="text" class="customer" name="discount_code" placeholder="Discount Code" required>
 					<div class="clear"></div>
 
@@ -139,33 +144,33 @@
 			</div>
 
 			<div id="manufacturing">
-				<div class="input-seperator" data-number="0">
+				<div class="input-seperator" data-number="1">
 					<label class="input-title" for="">What type of Accounting solution do you use? </label>
 					<label>
-						<input class="accounting" type="radio" name="accounting" value="quickbooks desktop">
+						<input class="accounting-recommendation" type="radio" name="accounting-recommendation" value="quickbooks desktop">
 						<div class="radio-alternate">QuickBooks Desktop</div>
 					</label>
 					<label>
-						<input class="accounting" type="radio" name="accounting" value="hosting services">
+						<input class="accounting-recommendation" type="radio" name="accounting-recommendation" value="hosting services">
 						<div class="radio-alternate">QuickBooks Desktop Hosted</div>
 					</label>
 					<label>
-						<input class="accounting" type="radio" name="accounting" value="qbo">
+						<input class="accounting-recommendation" type="radio" name="accounting-recommendation" value="qbo">
 						<div class="radio-alternate">QuickBooks Online</div>
 					</label>
 					<label>
-						<input class="accounting" type="radio" name="accounting" value="xero">
+						<input class="accounting-recommendation" type="radio" name="accounting-recommendation" value="xero">
 						<div class="radio-alternate">Xero</div>
 					</label>
 					<label>
-						<input class="accounting" type="radio" name="accounting" value="other-accounting">
+						<input class="accounting-recommendation" type="radio" name="accounting-recommendation" value="other-accounting">
 						<div class="radio-alternate">Other</div>
 					</label>
 					<div class="clear"></div>
 					<button type="button" class="showPrev">Previous</button>
 					<button type="button" class="showNext">Next</button>
 				</div>
-				<div class="input-seperator" data-number="1">
+				<div class="input-seperator" data-number="2">
 					<label class="input-title" for="">How many of the following apply to your revenue / sales process? </label>
 					<label>
 						<input class="revenue" type="checkbox" name="revenue" value="quotes">
@@ -195,44 +200,44 @@
 					<button type="button" class="showPrev">Previous</button>
 					<button type="button" class="showNext">Next</button>
 				</div>
-				<div class="input-seperator" data-number="2">
+				<div class="input-seperator" data-number="3">
 					<label class="input-title">Are you looking to barcode or scan your inventory? </label>
 					<label>
-						<input class="inventory-import" type="radio" name="inventory-import" value="fbg">
+						<input class="barcode-recommendation" type="radio" name="barcode-recommendation" value="fbg">
 						<div class="radio-alternate">Yes</div>
 					</label>
 					<label>
-						<input class="inventory-import" type="radio" name="inventory-import" value="no-import">
+						<input class="barcode-recommendation" type="radio" name="barcode-recommendation" value="none">
 						<div class="radio-alternate">No</div>
 					</label>
 					<label>
-						<input class="inventory-import" type="radio" name="inventory-import" value="potentially">
+						<input class="barcode-recommendation" type="radio" name="barcode-recommendation" value="potentially">
 						<div class="radio-alternate">Potentially</div>
 					</label>
 					<div class="clear"></div>
 					<button type="button" class="showPrev">Previous</button>
 					<button type="button" class="showNext">Next</button>
 				</div>
-				<div class="input-seperator" data-number="3">
+				<div class="input-seperator" data-number="4">
 					<label class="input-title">Are any of the following advanced features applicable to your business? </label>
 					<label>
-						<input class="plugins" type="checkbox" name="plugins" value="shipstation">
+						<input class="plugin-recommendation" type="checkbox" name="plugin-recommendation" value="shipstation">
 						<div class="checkbox-alternate">Shipping</div>
 					</label>
 					<label>
-						<input class="plugins" type="checkbox" name="plugins" value="avalara">
+						<input class="plugin-recommendation" type="checkbox" name="plugin-recommendation" value="avalara">
 						<div class="checkbox-alternate">Tax Integration</div>
 					</label>
 					<label>
-						<input class="plugins" type="checkbox" name="plugins" value="fba">
+						<input class="plugin-recommendation" type="checkbox" name="plugin-recommendation" value="fba">
 						<div class="checkbox-alternate">Cloud Access</div>
 					</label>
 					<label>
-						<input class="plugins" type="checkbox" name="plugins" value="fbhs">
+						<input class="plugin-recommendation" type="checkbox" name="plugin-recommendation" value="fbhs">
 						<div class="checkbox-alternate">Hosting Services</div>
 					</label>
 					<label>
-						<input class="plugins" type="checkbox" name="plugins" value="fbtl">
+						<input class="plugin-recommendation" type="checkbox" name="plugin-recommendation" value="fbtl">
 						<div class="checkbox-alternate">Time and Labor</div>
 					</label>
 					<div class="clear"></div>
@@ -241,15 +246,15 @@
 				</div>
 				<div class="input-seperator" id="discount" data-number="5">
 					<label class="input-title" for="">Please fill out information</label>				
-					<input type="text" class="customer" name="fname" placeholder="First Name" required>
-					<input type="text" class="customer" name="lname" placeholder="Last Name" required>
+					<input type="text" class="customer" name="first-name" placeholder="First Name" required>
+					<input type="text" class="customer" name="last-name" placeholder="Last Name" required>
 					<input type="email" class="customer" name="email" placeholder="Email" required>
-					<input type="tel" class="customer" name="number" placeholder="Phone Number" required>
+					<input type="tel" class="customer" name="phone-number" placeholder="Phone Number" required>
 					<input type="text" class="customer" name="discount_code" placeholder="Discount Code" required>
 					<div class="clear"></div>
 
 					<button type="button" class="showPrev">Previous</button>
-					<button class="showNext" type="submit">Finish</button>
+					<button class="finish" type="submit">Finish</button>
 				</div>
 				
 
@@ -257,33 +262,33 @@
 
 
 			<div id="retail">	
-				<div class="input-seperator" data-number="0">
+				<div class="input-seperator" data-number="1">
 					<label class="input-title" for="">What type of Accounting solution do you use? </label>
 					<label>
-						<input class="accounting" type="radio" name="accounting" value="quickbooks desktop">
+						<input class="accounting-recommendation" type="radio" name="accounting-recommendation" value="quickbooks desktop">
 						<div class="radio-alternate">QuickBooks Desktop</div>
 					</label>
 					<label>
-						<input class="accounting" type="radio" name="accounting" value="hosting services">
+						<input class="accounting-recommendation" type="radio" name="accounting-recommendation" value="hosting services">
 						<div class="radio-alternate">QuickBooks Desktop Hosted</div>
 					</label>
 					<label>
-						<input class="accounting" type="radio" name="accounting" value="qbo">
+						<input class="accounting-recommendation" type="radio" name="accounting-recommendation" value="qbo">
 						<div class="radio-alternate">QuickBooks Online</div>
 					</label>
 					<label>
-						<input class="accounting" type="radio" name="accounting" value="xero">
+						<input class="accounting-recommendation" type="radio" name="accounting-recommendation" value="xero">
 						<div class="radio-alternate">Xero</div>
 					</label>
 					<label>
-						<input class="accounting" type="radio" name="accounting" value="other-accounting">
+						<input class="accounting-recommendation" type="radio" name="accounting-recommendation" value="other-accounting">
 						<div class="radio-alternate">Other</div>
 					</label>
 					<div class="clear"></div>
 					<button type="button" class="showPrev">Previous</button>
 					<button type="button" class="showNext">Next</button>
 				</div>
-				<div class="input-seperator" data-number="1">
+				<div class="input-seperator" data-number="2">
 					<label class="input-title" for="">How many of the following apply to your revenue / sales process? </label>
 					<label>
 						<input class="revenue" type="checkbox" name="revenue" value="quotes">
@@ -313,44 +318,44 @@
 					<button type="button" class="showPrev">Previous</button>
 					<button type="button" class="showNext">Next</button>
 				</div>
-				<div class="input-seperator" data-number="2">
+				<div class="input-seperator" data-number="3">
 					<label class="input-title">Are you looking to barcode or scan your inventory? </label>
 					<label>
-						<input class="inventory-import" type="radio" name="inventory-import" value="fbg">
+						<input class="barcode-recommendation" type="radio" name="barcode-recommendation" value="fbg">
 						<div class="radio-alternate">Yes</div>
 					</label>
 					<label>
-						<input class="inventory-import" type="radio" name="inventory-import" value="no-import">
+						<input class="barcode-recommendation" type="radio" name="barcode-recommendation" value="none">
 						<div class="radio-alternate">No</div>
 					</label>
 					<label>
-						<input class="inventory-import" type="radio" name="inventory-import" value="potentially">
+						<input class="barcode-recommendation" type="radio" name="barcode-recommendation" value="potentially">
 						<div class="radio-alternate">Potentially</div>
 					</label>
 					<div class="clear"></div>
 					<button type="button" class="showPrev">Previous</button>
 					<button type="button" class="showNext">Next</button>
 				</div>
-				<div class="input-seperator" data-number="3">
+				<div class="input-seperator" data-number="4">
 					<label class="input-title">Are any of the following advanced features applicable to your business? </label>
 					<label>
-						<input class="plugins" type="checkbox" name="plugins" value="shipstation">
+						<input class="plugin-recommendation" type="checkbox" name="plugin-recommendation" value="shipstation">
 						<div class="checkbox-alternate">Shipping</div>
 					</label>
 					<label>
-						<input class="plugins" type="checkbox" name="plugins" value="avalara">
+						<input class="plugin-recommendation" type="checkbox" name="plugin-recommendation" value="avalara">
 						<div class="checkbox-alternate">Tax Integration</div>
 					</label>
 					<label>
-						<input class="plugins" type="checkbox" name="plugins" value="fba">
+						<input class="plugin-recommendation" type="checkbox" name="plugin-recommendation" value="fba">
 						<div class="checkbox-alternate">Cloud Access</div>
 					</label>
 					<label>
-						<input class="plugins" type="checkbox" name="plugins" value="fbhs">
+						<input class="plugin-recommendation" type="checkbox" name="plugin-recommendation" value="fbhs">
 						<div class="checkbox-alternate">Hosting Services</div>
 					</label>
 					<label>
-						<input class="plugins" type="checkbox" name="plugins" value="fbtl">
+						<input class="plugin-recommendation" type="checkbox" name="plugin-recommendation" value="fbtl">
 						<div class="checkbox-alternate">Time and Labor</div>
 					</label>
 					<div class="clear"></div>
@@ -359,40 +364,40 @@
 				</div>
 				<div class="input-seperator" id="discount" data-number="5">
 					<label class="input-title" for="">Please fill out information</label>				
-					<input type="text" class="customer" name="fname" placeholder="First Name" required>
-					<input type="text" class="customer" name="lname" placeholder="Last Name" required>
+					<input type="text" class="customer" name="first-name" placeholder="First Name" required>
+					<input type="text" class="customer" name="last-name" placeholder="Last Name" required>
 					<input type="email" class="customer" name="email" placeholder="Email" required>
-					<input type="tel" class="customer" name="number" placeholder="Phone Number" required>
+					<input type="tel" class="customer" name="phone-number" placeholder="Phone Number" required>
 					<input type="text" class="customer" name="discount_code" placeholder="Discount Code" required>
 					<div class="clear"></div>
 
 					<button type="button" class="showPrev">Previous</button>
-					<button class="showNext" type="submit">Finish</button>
+					<button class="finish" type="submit">Finish</button>
 				</div>
 			</div>
 
 			<div id="service">
 
-				<div class="input-seperator" data-number="0">
+				<div class="input-seperator" data-number="1">
 					<label class="input-title" for="">What type of Accounting solution do you use? </label>
 					<label>
-						<input class="accounting" type="radio" name="accounting" value="quickbooks desktop">
+						<input class="accounting-recommendation" type="radio" name="accounting-recommendation" value="quickbooks desktop">
 						<div class="radio-alternate">QuickBooks Desktop</div>
 					</label>
 					<label>
-						<input class="accounting" type="radio" name="accounting" value="hosting services">
+						<input class="accounting-recommendation" type="radio" name="accounting-recommendation" value="hosting services">
 						<div class="radio-alternate">QuickBooks Desktop Hosted</div>
 					</label>
 					<label>
-						<input class="accounting" type="radio" name="accounting" value="qbo">
+						<input class="accounting-recommendation" type="radio" name="accounting-recommendation" value="qbo">
 						<div class="radio-alternate">QuickBooks Online</div>
 					</label>
 					<label>
-						<input class="accounting" type="radio" name="accounting" value="xero">
+						<input class="accounting-recommendation" type="radio" name="accounting-recommendation" value="xero">
 						<div class="radio-alternate">Xero</div>
 					</label>
 					<label>
-						<input class="accounting" type="radio" name="accounting" value="other-accounting">
+						<input class="accounting-recommendation" type="radio" name="accounting-recommendation" value="other-accounting">
 						<div class="radio-alternate">Other</div>
 					</label>
 
@@ -401,7 +406,7 @@
 					<button type="button" class="showNext">Next</button>
 					
 				</div>
-				<div class="input-seperator">
+				<div class="input-seperator" data-number="2">
 					<label class="input-title" for="">How many of the following apply to your revenue / sales process? </label>
 					<label>
 						<input class="revenue" type="checkbox" name="revenue" value="quotes">
@@ -431,18 +436,18 @@
 					<button type="button" class="showPrev">Previous</button>
 					<button type="button" class="showNext">Next</button>
 				</div>
-				<div class="input-seperator" data-number="2">
+				<div class="input-seperator" data-number="3">
 					<label class="input-title">Are you looking to barcode or scan your inventory? </label>
 					<label>
-						<input class="inventory-import" type="radio" name="inventory-import" value="fbg">
+						<input class="barcode-recommendation" type="radio" name="barcode-recommendation" value="fbg">
 						<div class="radio-alternate">Yes</div>
 					</label>
 					<label>
-						<input class="inventory-import" type="radio" name="inventory-import" value="no-import">
+						<input class="barcode-recommendation" type="radio" name="barcode-recommendation" value="none">
 						<div class="radio-alternate">No</div>
 					</label>
 					<label>
-						<input class="inventory-import" type="radio" name="inventory-import" value="potentially">
+						<input class="barcode-recommendation" type="radio" name="barcode-recommendation" value="potentially">
 						<div class="radio-alternate">Potentially</div>
 					</label>
 					<div class="clear"></div>
@@ -450,26 +455,26 @@
 					<button type="button" class="showNext">Next</button>
 					
 				</div>
-				<div class="input-seperator" data-number="3">
+				<div class="input-seperator" data-number="4">
 					<label class="input-title">Are any of the following advanced features applicable to your business? </label>
 					<label>
-						<input class="plugins" type="checkbox" name="plugins" value="shipstation">
+						<input class="plugin-recommendation" type="checkbox" name="plugin-recommendation" value="shipstation">
 						<div class="checkbox-alternate">Shipping</div>
 					</label>
 					<label>
-						<input class="plugins" type="checkbox" name="plugins" value="avalara">
+						<input class="plugin-recommendation" type="checkbox" name="plugin-recommendation" value="avalara">
 						<div class="checkbox-alternate">Tax Integration</div>
 					</label>
 					<label>
-						<input class="plugins" type="checkbox" name="plugins" value="fba">
+						<input class="plugin-recommendation" type="checkbox" name="plugin-recommendation" value="fba">
 						<div class="checkbox-alternate">Cloud Access</div>
 					</label>
 					<label>
-						<input class="plugins" type="checkbox" name="plugins" value="fbhs">
+						<input class="plugin-recommendation" type="checkbox" name="plugin-recommendation" value="fbhs">
 						<div class="checkbox-alternate">Hosting Services</div>
 					</label>
 					<label>
-						<input class="plugins" type="checkbox" name="plugins" value="fbtl">
+						<input class="plugin-recommendation" type="checkbox" name="plugin-recommendation" value="fbtl">
 						<div class="checkbox-alternate">Time and Labor</div>
 					</label>
 					<div class="clear"></div>
@@ -479,40 +484,40 @@
 
 				<div class="input-seperator" id="discount" data-number="5">
 					<label class="input-title" for="">Please fill out information</label>				
-					<input type="text" class="customer" name="fname" placeholder="First Name" required>
-					<input type="text" class="customer" name="lname" placeholder="Last Name" required>
+					<input type="text" class="customer" name="first-name" placeholder="First Name" required>
+					<input type="text" class="customer" name="last-name" placeholder="Last Name" required>
 					<input type="email" class="customer" name="email" placeholder="Email" required>
-					<input type="tel" class="customer" name="number" placeholder="Phone Number" required>
+					<input type="tel" class="customer" name="phone-number" placeholder="Phone Number" required>
 					<input type="text" class="customer" name="discount_code" placeholder="Discount Code" required>
 					<div class="clear"></div>
 
 					<button type="button" class="showPrev">Previous</button>
-					<button class="showNext" type="submit">Finish</button>
+					<button class="finish" type="submit">Finish</button>
 				</div>
 				
 			</div>
 
 			<div id="distribution">
-				<div class="input-seperator" data-number="0">
+				<div class="input-seperator" data-number="1">
 					<label class="input-title" for="">What type of Accounting solution do you use? </label>
 					<label>
-						<input class="accounting" type="radio" name="accounting" value="quickbooks desktop">
+						<input class="accounting-recommendation" type="radio" name="accounting-recommendation" value="quickbooks desktop">
 						<div class="radio-alternate">QuickBooks Desktop</div>
 					</label>
 					<label>
-						<input class="accounting" type="radio" name="accounting" value="hosting services">
+						<input class="accounting-recommendation" type="radio" name="accounting-recommendation" value="hosting services">
 						<div class="radio-alternate">QuickBooks Desktop Hosted</div>
 					</label>
 					<label>
-						<input class="accounting" type="radio" name="accounting" value="qbo">
+						<input class="accounting-recommendation" type="radio" name="accounting-recommendation" value="qbo">
 						<div class="radio-alternate">QuickBooks Online</div>
 					</label>
 					<label>
-						<input class="accounting" type="radio" name="accounting" value="xero">
+						<input class="accounting-recommendation" type="radio" name="accounting-recommendation" value="xero">
 						<div class="radio-alternate">Xero</div>
 					</label>
 					<label>
-						<input class="accounting" type="radio" name="accounting" value="other-accounting">
+						<input class="accounting-recommendation" type="radio" name="accounting-recommendation" value="other-accounting">
 						<div class="radio-alternate">Other</div>
 					</label>
 
@@ -520,7 +525,7 @@
 					<button type="button" class="showPrev">Previous</button>
 					<button type="button" class="showNext">Next</button>
 				</div>
-				<div class="input-seperator" data-number="1">
+				<div class="input-seperator" data-number="2">
 					<label class="input-title">Which best describes your sales process? </label>
 					<label>
 						<input class="sales-process" type="radio" name="sales-process" value="invoice">
@@ -546,18 +551,18 @@
 					<button type="button" class="showPrev">Previous</button>
 					<button type="button" class="showNext">Next</button>
 				</div>
-				<div class="input-seperator" data-number="2">
+				<div class="input-seperator" data-number="3">
 					<label class="input-title">Are you looking to barcode or scan your inventory? </label>
 					<label>
-						<input class="inventory-import" type="radio" name="inventory-import" value="fbg">
+						<input class="barcode-recommendation" type="radio" name="barcode-recommendation" value="fbg">
 						<div class="radio-alternate">Yes</div>
 					</label>
 					<label>
-						<input class="inventory-import" type="radio" name="inventory-import" value="no-import">
+						<input class="barcode-recommendation" type="radio" name="barcode-recommendation" value="none">
 						<div class="radio-alternate">No</div>
 					</label>
 					<label>
-						<input class="inventory-import" type="radio" name="inventory-import" value="potentially">
+						<input class="barcode-recommendation" type="radio" name="barcode-recommendation" value="potentially">
 						<div class="radio-alternate">Potentially</div>
 					</label>
 					<div class="clear"></div>
@@ -565,26 +570,26 @@
 					<button type="button" class="showNext">Next</button>
 					
 				</div>
-				<div class="input-seperator" data-number="3">
+				<div class="input-seperator" data-number="4">
 					<label class="input-title">Are any of the following advanced features applicable to your business? </label>
 					<label>
-						<input class="plugins" type="checkbox" name="plugins" value="shipstation">
+						<input class="plugin-recommendation" type="checkbox" name="plugin-recommendation" value="shipstation">
 						<div class="checkbox-alternate">Shipping</div>
 					</label>
 					<label>
-						<input class="plugins" type="checkbox" name="plugins" value="avalara">
+						<input class="plugin-recommendation" type="checkbox" name="plugin-recommendation" value="avalara">
 						<div class="checkbox-alternate">Tax Integration</div>
 					</label>
 					<label>
-						<input class="plugins" type="checkbox" name="plugins" value="fba">
+						<input class="plugin-recommendation" type="checkbox" name="plugin-recommendation" value="fba">
 						<div class="checkbox-alternate">Cloud Access</div>
 					</label>
 					<label>
-						<input class="plugins" type="checkbox" name="plugins" value="fbhs">
+						<input class="plugin-recommendation" type="checkbox" name="plugin-recommendation" value="fbhs">
 						<div class="checkbox-alternate">Hosting Services</div>
 					</label>
 					<label>
-						<input class="plugins" type="checkbox" name="plugins" value="fbtl">
+						<input class="plugin-recommendation" type="checkbox" name="plugin-recommendation" value="fbtl">
 						<div class="checkbox-alternate">Time and Labor</div>
 					</label>
 					<div class="clear"></div>
@@ -592,37 +597,20 @@
 					<button type="button" class="showNext">Next</button>
 				</div>
 
-				<div class="input-seperator" id="discount" data-number="5">
+				<div class="input-seperator" id="customer-info" data-number="5">
 					<label class="input-title" for="">Please fill out information</label>				
-					<input type="text" class="customer" name="fname" placeholder="First Name" required>
-					<input type="text" class="customer" name="lname" placeholder="Last Name" required>
+					<input type="text" class="customer" name="first-name" placeholder="First Name" required>
+					<input type="text" class="customer" name="last-name" placeholder="Last Name" required>
 					<input type="email" class="customer" name="email" placeholder="Email" required>
-					<input type="tel" class="customer" name="number" placeholder="Phone Number" required>
+					<input type="tel" class="customer" name="phone-number" placeholder="Phone Number" required>
 					<input type="text" class="customer" name="discount_code" placeholder="Discount Code" required>
 					<div class="clear"></div>
 
 					<button type="button" class="showPrev">Previous</button>
-					<button class="showNext" type="submit">Finish</button>
+					<button class="finish" type="submit">Finish</button>
 				</div>
 
 			</div>
-			
-			
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 		</form>
 

@@ -26,9 +26,9 @@ label span {display: block;}
 .input-seperator {margin: 1.5em auto; display: none; padding-bottom: 4em; }
 .input-title {margin: 2em 0; }
 input.customer {font-size: 1.2em; padding: .7em; display: block; margin: 0 auto 1em auto; width: 75%; border-radius: .4em; border: none; box-sizing: border-box;}
-.showNext, .showPrev { padding:.7em; background: #004F8C; color: #ffffff; display: inline-block; width: 6em; margin-top: 3em; }
+.showNext, .showPrev, .finish { padding:.7em; background: #004F8C; color: #ffffff; display: inline-block; width: 6em; margin-top: 3em; }
 .showPrev {float: left; cursor: pointer; margin-left: 1em;}
-.showNext {float: right; cursor: pointer; margin-right: 1em;}
+.showNext, .finish {float: right; cursor: pointer; margin-right: 1em;}
 
 .progress-container{width: 500px; height: 40px; border: 1px solid black;}
 
