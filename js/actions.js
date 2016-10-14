@@ -67,11 +67,10 @@ $(function ($) {
 	$("input:radio").change(function (e) { 
 		$(this).parent('label').siblings('.showNext').prop('disabled', false).css('opacity', '1');
 	});
-
-	$("input:checkbox").click(function (e) { 
+	$("#revenue-recommendation input:checkbox").click(function (e) { 
 		console.log(1)
 		var opacity;
-		var buttonState = $('input:checkbox:checked').length;
+		var buttonState = $('#revenue-recommendation input:checkbox:checked').length;
 
 		if (buttonState > 0) {
 			opacity = '1';			
@@ -82,6 +81,22 @@ $(function ($) {
 
 		$(this).parent('label').siblings('.showNext').prop('disabled', !$('input:checkbox:checked').length).css('opacity', opacity);
 	});
+
+	$("#plugin-recommendation input:checkbox").click(function (e) { 
+		console.log(1)
+		var opacity;
+		var buttonState = $('#plugin-recommendation input:checkbox:checked').length;
+
+		if (buttonState > 0) {
+			opacity = '1';			
+		}
+		else {
+			opacity = '.5'; 
+		}
+
+		$(this).parent('label').siblings('.showNext').prop('disabled', !$('input:checkbox:checked').length).css('opacity', opacity);
+	});
+
 
 
 
