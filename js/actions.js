@@ -1,4 +1,11 @@
 $(function ($) {
+	var storageRef = firebase.database().ref('/user-input/');
+	console.log(storageRef);
+
+	
+
+
+
 
 	var start = true;
 	var questionNumber = $('.pagination-container button');
@@ -19,10 +26,8 @@ $(function ($) {
 
 	
 	$('.showFirst').click(function(e) {
-		console.log(e);
 		var industry = $('input[name=industry]:checked', 'form').val(); 
 		var industryId = '#' + industry;
-		console.log(industryId);
 		var filters = $(industryId).attr("id", industry).children('.input-seperator');
 		var filtersData = filters.data('number');
 		var showFilter = filters.eq(filtersData -1).fadeIn(200);
@@ -67,65 +72,53 @@ $(function ($) {
 	$("input:radio").change(function (e) { 
 		$(this).parent('label').siblings('.showNext').prop('disabled', false).css('opacity', '1');
 	});
-	$("#revenue-recommendation input:checkbox").click(function (e) { 
-		console.log(1)
-		var opacity;
-		var buttonState = $('#revenue-recommendation input:checkbox:checked').length;
+	$("input.revenue:checkbox").change(function (e) { 
+		var checkedState = $('input.revenue:checkbox:checked').length;
+		var buttonState = $(this).parent('label').siblings('.showNext');		
 
-		if (buttonState > 0) {
-			opacity = '1';			
+		if (checkedState > 0) {
+			buttonState.prop('disabled', !checkedState).css('opacity', '1');	
 		}
 		else {
-			opacity = '.5'; 
+			buttonState.prop('disabled', !checkedState).css('opacity', '.5');
 		}
-
-		$(this).parent('label').siblings('.showNext').prop('disabled', !$('input:checkbox:checked').length).css('opacity', opacity);
-	});
-
-	$("#plugin-recommendation input:checkbox").click(function (e) { 
-		console.log(1)
-		var opacity;
-		var buttonState = $('#plugin-recommendation input:checkbox:checked').length;
-
-		if (buttonState > 0) {
-			opacity = '1';			
-		}
-		else {
-			opacity = '.5'; 
-		}
-
-		$(this).parent('label').siblings('.showNext').prop('disabled', !$('input:checkbox:checked').length).css('opacity', opacity);
-	});
-
-
-
-
-
-
-
-	var formProgress = function() {
-		var validInputNum = 0;
-		$("form input[required").each(function(index, element) {
-			console.log(this.validity.valid);
-			if (this.validity.valid) {
-				validInputNum++;
-			}
-
-
-
-		});
-		var checkboxLength = $(".checked").length // work around since required on checkboxes have a lot of issues
-		var formLength = $("form input[required").length;
-		var progress = Math.round((validInputNum + checkboxChecked) /(formLength + checkboxLength) * 100);
 		
-		var test = $('.progress-bar').css('width', progress + '%');
-	}
+	});
+
+	$("input.plugin-recommendation:checkbox").change(function (e) { 
+		var checkedState = $('input.plugin-recommendation:checkbox:checked').length;
+		var buttonState = $(this).parent('label').siblings('.showNext');	
+
+		if (checkedState > 0) {
+			buttonState.prop('disabled', !checkedState).css('opacity', '1');	
+		}
+		else {
+			buttonState.prop('disabled', !checkedState).css('opacity', '.5');
+		}
+		
+	});
+
+
 
 	$('form').on('submit', function(e) {
 
 		e.preventDefault();
 
-		console.log($(this).serializeArray());
-	})
+		formLoop($(this).serializeArray());
+	});
+
+	var formLoop = function(form) {
+
+		for (var key in form) {
+			console.log(form[key].name + " : " + form[key].value);
+			storageRef.set({
+				username: form[key].name
+			}).then(function(pist) {
+				console.log(pist)
+			});
+
+		}
+
+	}
 
 });

@@ -615,7 +615,20 @@
 		</form>
 
 	</div>
-	<script src="js/bower_components/jquery/dist/jquery.min.js"></script>
-	<script src="js/actions.js"></script>
+
+	<script src="https://www.gstatic.com/firebasejs/3.5.0/firebase.js"></script>
+	<script>
+  // Initialize Firebase
+  var config = {
+  	apiKey: "AIzaSyDCfONxwdbanmRhKCn-uc1tp1f4wjH5_bI",
+  	authDomain: "plugin-generator.firebaseapp.com",
+  	databaseURL: "https://plugin-generator.firebaseio.com",
+  	storageBucket: "plugin-generator.appspot.com",
+  	messagingSenderId: "591510429194"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="js/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="js/actions.js"></script>
 </body>
 </html>
